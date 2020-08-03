@@ -1,5 +1,5 @@
 function fzf-select-files() {
-    BUFFER="${LBUFFER}$(fd --type f |  fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}")"
+    BUFFER="${LBUFFER}$(fd --type f | fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}")"
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -8,7 +8,7 @@ zle -N fzf-select-files
 bindkey '^s^f' fzf-select-files
 
 function fzf-select-dirs() {
-    BUFFER="${LBUFFER}$(fd --type d |  fzf)"
+    BUFFER="${LBUFFER}$(fd --type d | fzf)"
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -40,4 +40,9 @@ function rgv() {
     fi
 
     nvim $file_path "+call cursor($line_number, $column_number)" "+set hlsearch | let @/ = \"$search_words\""
+}
+
+function fdv() {
+    file_path=$(fd --type f | fzf)
+    nvim $file_path
 }
