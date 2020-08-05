@@ -23,3 +23,4 @@ sudo apt install -y virtualbox
 
 # Utility
 sudo apt install -y curl
+sudo apt install -y direnv
