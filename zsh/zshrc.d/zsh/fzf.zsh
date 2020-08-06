@@ -52,6 +52,6 @@ function rgv() {
 }
 
 function fdv() {
-    file_path=$(fd --type f | fzf)
+    file_path=$(fd --type f | fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}")
     nvim $file_path
 }
