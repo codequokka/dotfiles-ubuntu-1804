@@ -1,5 +1,5 @@
 function fzf-select-history() {
-    BUFFER=$(history -n -r 1 | fzf --query="$LBUFFER")
+    BUFFER=$(history -n -r 1 | fzf --no-sort --query="$LBUFFER")
     CURSOR=$#BUFFER
     zle reset-prompt
 }
